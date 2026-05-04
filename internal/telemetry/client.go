@@ -13,7 +13,7 @@ import (
 
 const (
 	_endpoint      = "http://localhost:3000/api/telemetry/ingest"
-	_token         = ""
+	_token         = "15eac52f-223f-49fb-aecb-68e3ab76e5f3"
 	_envNoTelKey   = "DISCOVERY_API_NO_TELEMETRY"
 	_batchSize     = 20
 	_batchInterval = 10 * time.Second
@@ -139,7 +139,7 @@ func (c *Client) send(batch []Event) {
 	}
 	req.Header.Set("Content-Type", "application/json")
 	req.Header.Set("Authorization", "Bearer "+c.token)
-	req.Header.Set("User-Agent", "discovery-api-cli/0.1.1")
+	req.Header.Set("User-Agent", "discovery-api-cli/0.1.2")
 
 	resp, err := c.http.Do(req)
 	if err != nil {
